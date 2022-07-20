@@ -29,7 +29,8 @@ function UltimoServicioCard(){
                 <div className="card-body">
                         <h5>Desde - {servicios.origen} Hacia - {servicios.destination} </h5>
                     <div className="text-center">
-                        {servicios && servicios.usuarios && <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 23 +'rem'}} src={servicios.usuarios.image} alt={servicios.usuarios.email}/>}
+                        {servicios && servicios.usuarios && <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 15 +'rem'}} src={servicios.usuarios.image} alt={servicios.usuarios.email}/>}
+                        {!servicios && !servicios.usuarios && <i class="fas fas fa-spinner fa-2x text-gray-300`"></i>}
                     </div>
                     <p>{servicios.description}</p>
                     <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>

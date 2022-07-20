@@ -24,7 +24,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to={"/"}>
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Dashboard - Movelo</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -40,25 +40,20 @@ function SideBar(){
                         <span>Servicios</span>
                     </Link>
                 </li>
-
-                {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">
+                    <Link className="nav-link" to="/lista-de-usuarios">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Usuarios</span></Link>
                 </li>
-
-                {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to={"/"}>
+                    <Link className="nav-link" to={"/nosotros"}>
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Nosotros</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
-            {/*<!-- End of Sidebar -->*/}
         </>
     )
 }
