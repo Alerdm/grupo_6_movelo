@@ -35,20 +35,25 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to={"servicios"}>
-                        <i className="fas fa-fw fa-folder"></i>
+                    <Link className="nav-link collapsed" to={"/servicios/todos"}>
+                        <i className="fas fa-fw fa-box-open"></i>
                         <span>Servicios</span>
                     </Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/lista-de-usuarios">
-                        <i className="fas fa-fw fa-chart-area"></i>
+                        <i className="fas fa-fw fa-user"></i>
                         <span>Usuarios</span></Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to={"/nosotros"}>
-                        <i className="fas fa-fw fa-table"></i>
+                        <i className="fas fa-fw fa-users"></i>
                         <span>Nosotros</span></Link>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href='http://localhost:3001/'>
+                        <i className="fas fa-fw fa-link"></i>
+                        <span>Web alternativa</span></a>
                 </li>
 
                 {/*<!-- Divider -->*/}

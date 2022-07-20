@@ -9,12 +9,16 @@ function SeccionContenidoTotales(){
         titulo: "Total de Usuarios",
         valor: 0,
         icono: "fas fa-user",
+        style: "col-md-3 mb-3",
+        link: "/lista-de-usuarios"
     })
     const [totalServicios, setTotalServicios] = useState({
         color:   "dark",
         titulo: "Servicios Totales",
         valor: 0,
         icono: "fas fa-people-carry",
+        style: "col-md-3 mb-3",
+        link: "/servicios/todos"
     })
     
     const [totalServiciosLocales, setTotalServiciosLocales] = useState({
@@ -22,6 +26,8 @@ function SeccionContenidoTotales(){
         titulo: "Servicios Locales",
         valor: 0,
         icono: "fas fa-shipping-fast",
+        style: "col-md-3 mb-3",
+        link: "/servicios/categoria"
     })
 
     const [totalServiciosInternacionales, setTotalServiciosInternacionales] = useState({
@@ -29,6 +35,8 @@ function SeccionContenidoTotales(){
         titulo: "Servicios Internacionales",
         valor: 0,
         icono: "fas fa-globe",
+        style: "col-md-3 mb-3",
+        link: "/servicios/categoria"
     })
 
     const totales  = [totalUsuarios, totalServicios, totalServiciosLocales, totalServiciosInternacionales]

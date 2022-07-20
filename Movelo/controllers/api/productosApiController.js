@@ -9,11 +9,11 @@ const productosController = {
 	listar: async (req, res) => {
         const servicios = await db.Services.findAll({ attributes: ['id_service', 'id_user', 'origen', 'destination', 'description'], include: [{association: "usuarios"}]})   
         const categoriaEnvio = await db.CategoriaEnvio.findAll()
-        const serviciosLocales = await db.Services.findAll({where: { id_shipment_category: 1}})
-        const serviciosInternacionales = await db.Services.findAll({where: { id_shipment_category: 2}})
-        const frecuenciaDiaria = await db.Services.findAll({where: { id_frequency: 1}})
-        const frecuenciaSemanal = await db.Services.findAll({where: { id_frequency: 2}})
-        const frecuenciaMensual = await db.Services.findAll({where: { id_frequency: 3}})
+        const serviciosLocales = await db.Services.findAll({where: { id_shipment_category: 1}, atributes: ['id_service', 'origen', 'destination']})
+        const serviciosInternacionales = await db.Services.findAll({where: { id_shipment_category: 2}, atributes: ['id_service', 'origen', 'destination']})
+        const frecuenciaDiaria = await db.Services.findAll({where: { id_frequency: 1}, atributes: ['id_service', 'origen', 'destination']})
+        const frecuenciaSemanal = await db.Services.findAll({where: { id_frequency: 2}, atributes: ['id_service', 'origen', 'destination']})
+        const frecuenciaMensual = await db.Services.findAll({where: { id_frequency: 3}, atributes: ['id_service', 'origen', 'destination']})
 
 
         for (let i=0; i < servicios.length; i++){
@@ -23,18 +23,18 @@ const productosController = {
         }
         res.status(200).json({
             total: servicios.length,
-            countByCategory: { serviciosLocales: serviciosLocales.length , serviciosInternacionales: serviciosInternacionales.length},
-            countByFrequency: { frecuenciaDiaria: frecuenciaDiaria.length, frecuenciaSemanal: frecuenciaSemanal.length, frecuenciaMensual: frecuenciaMensual.length},
+            countByCategory: { serviciosLocales: serviciosLocales.length, serviciosLocalesDetalle: serviciosLocales, serviciosInternacionales: serviciosInternacionales.length, serviciosInternacionalesDetalle: serviciosInternacionales},
+            countByFrequency: { frecuenciaDiaria: frecuenciaDiaria.length, serviciosFrecuenciaDiaria: frecuenciaDiaria, frecuenciaSemanal: frecuenciaSemanal.length, serviciosFrecuenciaSemanal: frecuenciaSemanal, frecuenciaMensual: frecuenciaMensual.length, serviciosFrecuenciaMensual: frecuenciaMensual},
             data: servicios,
             status: 200
         })
 	},
 
 	detalle: async (req, res) => {
-		const servicio = await db.Services.findByPk(req.params.id)
+		const servicio = await db.Services.findByPk(req.params.id, {include: [{association: "usuarios"}]})
         const categoriaEnvio = await db.CategoriaEnvio.findAll()
         const frecuenciaEnvio = await db.CategoriaEnvio.findAll() 
-    
+        image = 'http://localhost:3001/images/avatars/'+servicio.dataValues.usuarios.image
 		res.status(200).json({ 
                 id: servicio.id_service,
                 id_user: servicio.id_user,
@@ -46,8 +46,9 @@ const productosController = {
                 height: servicio.height,
                 width: servicio.width,
                 price: servicio.price,
-                description: servicio.description,  
-            url_imagen: {}, 
+                description: servicio.description,
+                image: image,
+                url_imagen: {}, 
         })
 	},
 	

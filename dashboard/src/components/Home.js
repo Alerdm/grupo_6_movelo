@@ -1,7 +1,8 @@
 import React from 'react';
-import ServiciosInDb from './ServiciosInDb';
+import ServiciosInDb6 from './ServiciosInDb6';
 import SeccionContenidoTotales from './SeccionContenidoTotales';
 import UltimoServicioCard from './UltimoServicioCard'
+import SeccionContenidoTotalesInferior from './SeccionContenidoTotalesInferior'
 
 function Home() {
     
@@ -17,8 +18,10 @@ function Home() {
 
 				<div className="row">
 					<UltimoServicioCard />
-					<ServiciosInDb />		
+					<ServiciosInDb6 />		
 				</div>
+
+				<SeccionContenidoTotalesInferior />
 
 			</div>
         </>
